@@ -26,6 +26,7 @@ class Goal extends Model
 
     protected $propNameMap = [];
 
+    protected $is_retargeting = false;
     /**
      * Retrieve the id property
      *
@@ -157,4 +158,24 @@ class Goal extends Model
         $this->conditions = $conditions;
         return $this;
     }
+
+    /**
+     * @param bool $is_retargeting
+     * @return $this
+     */
+    public function setIsRetargeting($is_retargeting)
+    {
+        $this->is_retargeting = $is_retargeting;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsRetargeting()
+    {
+      return $this->is_retargeting;
+    }
+
+
 }
