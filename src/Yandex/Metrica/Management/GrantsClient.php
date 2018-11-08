@@ -61,7 +61,8 @@ class GrantsClient extends ManagementClient
      */
     public function getGrant($counterId, $userLogin, $params = [])
     {
-        $resource = 'counter/' . $counterId . '/grant/' . $userLogin;
+        $resource = 'counter/' . $counterId . '/grant';
+        $params['user_login'] = $userLogin;
         $response = $this->sendGetRequest($resource, $params);
         $grantResponse = new Models\GetGrantResponse($response);
         return $grantResponse->getGrant();
